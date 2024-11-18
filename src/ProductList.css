@@ -73,7 +73,8 @@ body {
   color: white;
   display: flex;
 }
-.cart_quantity_count {
+
+.cart-quantity-count {
   margin-top: 16px;
   /* background-color: red; */
   margin-left: 27px;
@@ -89,31 +90,38 @@ body {
   align-items: center;
   justify-content: center;
 }
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  /* background-color: pink; */
-  /* justify-content: space-between; */
-  padding: 20px;
+.product-category {
+  margin: 40px 0;
   width: 100%;
-  align-items: center;
-  justify-content: center;
+}
+.product-category-heading {
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  padding: 20px;
+  width: 80%;
+  margin: auto;
 }
 
 /* Product Card */
 .product-card {
-  flex: 0 0 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap */
-  max-width: calc(26.33% - 20px); /* Adjust max-width for 3 cards per row with 20px gap */
-  margin-bottom: 20px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
   position: relative;
-
-  gap: 20px;
+  gap: 10px;
 }
 
 /* Pseudo-classes - Hover effect on product button */
@@ -125,13 +133,15 @@ body {
 
 .product-title {
   font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+.product-desc {
+  text-align: center;
 }
 
 .product-price {
   color: #e74c3c;
   font-size: 1.2rem;
-  margin-bottom: 10px;
 }
 
 .product-image {
@@ -179,14 +189,6 @@ body {
   border-left: none;
   border-right: none;
 }
-/* Add Media Query for responsiveness */
-@media (max-width: 768px) {
-  .product-card {
-    flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on smaller screens */
-    max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on smaller screens */
-  }
-}
-/* ProductList.css */
 
 .product-button {
   background-color: #4caf50; /* Green */
@@ -198,6 +200,7 @@ body {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  border-radius: 5px;
   transition-duration: 0.4s;
   cursor: pointer;
 }
@@ -209,17 +212,17 @@ body {
 .product-button.added-to-cart {
   background-color: grey; /* Grey when product is added */
 }
+
+/* Add Media Query for responsiveness */
 @media (max-width: 1200px) {
-  .product-card {
-    flex: 1 1 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap on medium screens */
-    max-width: calc(33.33% - 20px); /* Adjust max-width for 3 cards per row with 20px gap on medium screens */
+  .product-list {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .product-card {
-    flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on small screens */
-    max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on small screens */
+  .product-list {
+    width: 90%;
   }
   .navbar {
     flex-direction: column; /* Change flex direction to stack items vertically */
@@ -239,5 +242,11 @@ body {
 
   .ul div {
     text-align: center; /* Align text to the center */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-list {
+    grid-template-columns: 1fr;
   }
 }
